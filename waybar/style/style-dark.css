@@ -50,7 +50,8 @@ tooltip label{
 #custom-lock_screen,
 #custom-light_dark,
 #custom-power_btn,
-#custom-power_profile,
+#custom-wireguard,
+#network,
 #window,
 #cpu,
 #disk,
@@ -88,9 +89,6 @@ tooltip label{
 #custom-launch_brave, 
 #custom-launch_thunar,
 #custom-launch_wofi,
-#custom-launch_kitty,
-
-#custom-launch_brave, 
 #custom-launch_kitty {
     font-size: 20px;
 }

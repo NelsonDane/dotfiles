@@ -23,11 +23,13 @@
         "temperature",
         "custom/power_profile",
         "battery",
+        "network",
+        "custom/wireguard",
         "custom/light_dark"
     ],
 
     "clock": {
-        "format": "{: %A, %B %e, %Y  %OI:%M:%S}",
+        "format": "{: %A, %B %e, %Y | %OI:%M:%S %p}",
         "interval": 1
     },
 
@@ -78,23 +80,23 @@
         "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
     },
 
-    "battery": {
-        "states": {
-            "good": 80,
-            "warning": 30,
-            "critical": 20
-        },
-        "format": "{icon}",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt-click": "click-right",
-        "format-alt": "{icon} {capacity}%",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-    },
+    // "battery": {
+    //     "states": {
+    //         "good": 80,
+    //         "warning": 30,
+    //         "critical": 20
+    //     },
+    //     "format": "{icon}",
+    //     "format-charging": " {capacity}%",
+    //     "format-plugged": " {capacity}%",
+    //     "format-alt-click": "click-right",
+    //     "format-alt": "{icon} {capacity}%",
+    //     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    // },
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": "",
+        "format-muted": " {volume}%",
         "on-click": "~/.config/dotfiles/waybar/scripts/volume --toggle",
         "on-click-right": "pavucontrol",
         "on-scroll-up": "~/.config/dotfiles/waybar/scripts/volume --inc",
@@ -122,6 +124,27 @@
         "scroll-step": 5,
         "tooltip": true,
         "tooltip-format": " at {volume}%"
+    },
+
+    "network": {
+        "interface": "enp34s0",
+        "format": "{ifname}",
+		"format-wifi": "({signalStrength}%) ",
+		"format-ethernet": "{bandwidthDownBits} | {bandwidthUpBits} 󰈀",
+		"format-disconnected": "", //An empty format will hide the module.
+		"tooltip-format": "{ifname}",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+		"tooltip-format-ethernet": "{ifname} {ipaddr}\nnetmask: {netmask}",
+		"tooltip-format-disconnected": "Disconnected",
+		"max-length": 50
+    },
+
+    "custom/wireguard": {
+        "format": "{}",
+        "exec": "~/.config/dotfiles/waybar/scripts/wireguard",
+        "on-click": "~/.config/dotfiles/waybar/scripts/wireguard --toggle",
+        "interval": 5,
+        "tooltip": false
     },
 
     "custom/updates": {

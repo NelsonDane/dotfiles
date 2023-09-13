@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Script to enable, disable, and toggle wireguard
+
+WG=wg-quick@wg0.service
+
+get_status() {
+    # Get the status of wireguard
+    STATUS=$(systemctl is-active $WG)
+}
+
+get_current_ip() {
+    # Get current IP with curl
+    IP=$(curl -s ipinfo.io/ip)
+}
+
+# Get first argument
+if [ "$1" == "" ]; then
+    get_status
+    if [ "$STATUS" == "active" ]; then
+        echo " Active"
+    else
+        echo " Inactive"
+    fi
+elif [ "$1" == "--toggle" ]; then
+    get_status
+    # If wireguard is active, disable it
+    if [ "$STATUS" == "active" ]; then
+        systemctl stop $WG
+        notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "Wireguard disabled"
+    # If wireguard is inactive, enable it
+    else
+        systemctl start $WG
+        notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "Wireguard enabled"
+    fi
+elif [ "$1" == "--enable" ]; then
+    systemctl start $WG
+    notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "Wireguard enabled"
+elif [ "$1" == "--disable" ]; then
+    systemctl stop $WG
+    notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "Wireguard disabled"
+fi
