@@ -54,6 +54,8 @@ global_symlinks() {
     # Kitty
     ln -sf ~/.config/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
     echo "Done!"
+    # Neovim
+    ln -sf ~/.config/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
 }
 
 # Set symlinks for Hyprland
