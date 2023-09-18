@@ -7,6 +7,8 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'ellisonleao/glow.nvim',
+
 Plug 'preservim/nerdtree'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -17,7 +19,13 @@ Plug 'folke/tokyonight.nvim'
 
 call plug#end()
 
+" Set colorscheme
 colorscheme tokyonight-night
+
+" Set Up Peek and Glow
+lua << EOF
+require('glow').setup()
+EOF
 
 " Use Tab to accept suggestions
 inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
