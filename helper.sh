@@ -46,13 +46,21 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-# Set sym links
-if [ $1 == "--symlinks" ]; then
-    echo "Setting symlinks..."
-    # Hyprland
-    ln -sf ~/.config/dotfiles/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
+# Set symlinks for all OSes
+global_symlinks() {
+    echo "Setting symlinks for all OSes..."
+    # Git
+    ln -sf ~/.config/dotfiles/git/gitconfig ~/.gitconfig
     # Kitty
     ln -sf ~/.config/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+    echo "Done!"
+}
+
+# Set symlinks for Hyprland
+hypr_symlinks() {
+    echo "Setting symlinks for Hyprland..."
+    # Hyprland
+    ln -sf ~/.config/dotfiles/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
     # Mako
     ln -sf ~/.config/dotfiles/mako/conf/config-dark ~/.config/mako/config
     # Swaylock
@@ -70,11 +78,32 @@ if [ $1 == "--symlinks" ]; then
     # Update the sddm image
     cp -f ~/.config/dotfiles/backgrounds/background-light.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
     echo "Done!"
-fi
+}
 
 # Restart waybar
 if [ $1 == "--restart-waybar" ]; then
     echo "Restarting waybar..."
     restart_waybar
     echo "Done!"
+fi
+
+
+# Set sym links
+if [ $1 == "--symlinks" ] && [ $2 == "all" ]; then
+    echo "This will set global symlinks and Hyprland symlinks. Continue? (y/n)"
+    read -r answer
+    if [ $answer != "y" ]; then
+        echo "Aborting..."
+        exit 1
+    fi
+    global_symlinks
+    hypr_symlinks
+fi
+
+if [ $1 == "--symlinks" ] && [ $2 == "global" ]; then
+    global_symlinks
+fi
+
+if [ $1 == "--symlinks" ] && [ $2 == "hypr" ]; then
+    hypr_symlinks
 fi
