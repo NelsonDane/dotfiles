@@ -6,3 +6,6 @@
 	defaultBranch = main
 [commit]
     gpgSign = true
+[core]
+    excludesfile = ~/.config/dotfiles/git/gitignore
+
