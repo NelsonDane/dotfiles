@@ -65,22 +65,10 @@ if [ $1 == "--symlinks" ]; then
     # Wofi
     ln -sf ~/.config/dotfiles/wofi/config ~/.config/wofi/config
     ln -sf ~/.config/dotfiles/wofi/style/style-dark.css ~/.config/wofi/style.css
-
-    # #set the waybar theme
-    # ln -sf ~/.config/dotfiles/waybar/style/$VERTO'style'$SWITCHTO.css ~/.config/waybar/style.css
-    # #set the wofi theme
-    # ln -sf ~/.config/dotfiles/wofi/style/$VERTO'style'$SWITCHTO.css ~/.config/wofi/style.css
-
-    #set the background
-    # if [ -z $SET_BG ]; then
-    #     swww img ~/.config/dotfiles/backgrounds/$VERTO'background'$SWITCHTO.jpg --transition-fps 60 --transition-type wipe --transition-duration 2
-    # else
-    #     swww img $SET_BG --transition-fps 60 --transition-type wipe --transition-duration 2
-    # fi
-
-    # #update the sddm image
-    # cp -f ~/.config/dotfiles/backgrounds/$VERTO'background'$SWITCHTO.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
-
+    # Set the background
+    swww img ~/.config/dotfiles/backgrounds/background-light.jpg --transition-fps 60 --transition-type wipe --transition-duration 1
+    # Update the sddm image
+    cp -f ~/.config/dotfiles/backgrounds/background-light.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
     echo "Done!"
 fi
 
