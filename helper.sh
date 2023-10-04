@@ -51,6 +51,8 @@ global_symlinks() {
     echo "Setting symlinks for all OSes..."
     # Git
     ln -sf ~/.config/dotfiles/git/gitconfig ~/.gitconfig
+    # Zsh
+    ln -sf ~/.config/dotfiles/zsh/zshrc ~/.zshrc
     # Kitty
     ln -sf ~/.config/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
     echo "Done!"
@@ -103,9 +105,21 @@ if [ $1 == "--symlinks" ] && [ $2 == "all" ]; then
 fi
 
 if [ $1 == "--symlinks" ] && [ $2 == "global" ]; then
+    echo "This will set global symlinks. Continue? (y/n)"
+    read -r answer
+    if [ $answer != "y" ]; then
+        echo "Aborting..."
+        exit 1
+    fi
     global_symlinks
 fi
 
 if [ $1 == "--symlinks" ] && [ $2 == "hypr" ]; then
+    echo "This will set Hyprland symlinks. Continue? (y/n)"
+    read -r answer
+    if [ $answer != "y" ]; then
+        echo "Aborting..."
+        exit 1
+    fi
     hypr_symlinks
 fi

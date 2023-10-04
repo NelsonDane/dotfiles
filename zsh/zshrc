@@ -1,0 +1,2 @@
+cd ~/Github/
+alias ssh="kitty +kitten ssh"
