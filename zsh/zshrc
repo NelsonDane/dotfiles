@@ -14,6 +14,7 @@ promptinit
 
 PROMPT='[%n@%m %~]%# '
 
+eval "$(thefuck --alias)"
 eval "$(starship init zsh)"
 
 # Set remote Docker host if Docker is installed
@@ -21,4 +22,4 @@ if command -v docker &> /dev/null; then
     export DOCKER_HOST=ssh://builder@dockerbuilder.lan
 fi
 
-cd ~/GitHub
+clear && cd ~/GitHub
