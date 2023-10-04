@@ -1,2 +1,24 @@
-cd ~/Github/
+# ~/.zshrc
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 alias ssh="kitty +kitten ssh"
+alias vim="nvim"
+alias vi="nvim"
+
+autoload -U promptinit
+promptinit
+
+PROMPT='[%n@%m %~]%# '
+
+eval "$(starship init zsh)"
+
+# Set remote Docker host if Docker is installed
+if command -v docker &> /dev/null; then
+    export DOCKER_HOST=ssh://builder@dockerbuilder.lan
+fi
+
+cd ~/GitHub
