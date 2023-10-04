@@ -23,6 +23,8 @@ Plug 'github/copilot.vim',
 
 Plug 'folke/tokyonight.nvim',
 
+Plug 'lambdalisue/suda.vim',
+
 call plug#end()
 
 " Set colorscheme
@@ -30,6 +32,9 @@ colorscheme tokyonight-night
 
 " Use Tab to accept suggestions
 inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
+
+" Save as sudo
+cnoremap w!! SudaWrite
 
 " Start NERDTree at start
 autocmd VimEnter * NERDTree | wincmd p
