@@ -7,25 +7,26 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'ellisonleao/glow.nvim',
+Plug 'preservim/nerdtree',
 
-Plug 'preservim/nerdtree'
+Plug 'nvim-lua/plenary.nvim',
+Plug 'nvim-telescope/telescope.nvim',
+
+Plug 'lukas-reineke/indent-blankline.nvim',
+
+Plug 'nvim-lualine/lualine.nvim',
+Plug 'nvim-tree/nvim-web-devicons',
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'github/copilot.vim'
+Plug 'github/copilot.vim',
 
-Plug 'folke/tokyonight.nvim'
+Plug 'folke/tokyonight.nvim',
 
 call plug#end()
 
 " Set colorscheme
 colorscheme tokyonight-night
-
-" Set Up Peek and Glow
-lua << EOF
-require('glow').setup()
-EOF
 
 " Use Tab to accept suggestions
 inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
