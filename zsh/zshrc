@@ -8,6 +8,13 @@ alias grep='grep --color=auto'
 alias ssh="kitty +kitten ssh"
 alias vim="nvim"
 alias vi="nvim"
+alias d="kitty . &"
+alias c="clear"
+alias f="fuck"
+# Docker host alias
+alias don="source ~/.config/dotfiles/scripts/docker_builder.sh on"
+alias doff="source ~/.config/dotfiles/scripts/docker_builder.sh off"
+alias dstat="source ~/.config/dotfiles/scripts/docker_builder.sh status"
 
 autoload -U promptinit
 promptinit
@@ -16,10 +23,5 @@ PROMPT='[%n@%m %~]%# '
 
 eval "$(thefuck --alias)"
 eval "$(starship init zsh)"
-
-# Set remote Docker host if Docker is installed
-if command -v docker &> /dev/null; then
-    export DOCKER_HOST=ssh://builder@dockerbuilder.lan
-fi
 
 clear && cd ~/GitHub
