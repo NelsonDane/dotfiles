@@ -5,10 +5,11 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias cat='pygmentize -g'
 alias ssh="kitty +kitten ssh"
 alias vim="nvim"
 alias vi="nvim"
-alias d="kitty . &"
+alias d="kitty . > /dev/null 2>&1 & disown"
 alias c="clear"
 alias f="fuck"
 # Docker host alias
@@ -24,4 +25,3 @@ PROMPT='[%n@%m %~]%# '
 eval "$(thefuck --alias)"
 eval "$(starship init zsh)"
 
-clear && cd ~/GitHub
