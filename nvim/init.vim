@@ -7,28 +7,28 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" Sidebar
 Plug 'preservim/nerdtree'
 
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-
+" Autocomplete
 Plug 'lukas-reineke/indent-blankline.nvim'
 
+" Statusline
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 
+" Syntax
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 Plug 'github/copilot.vim'
 
-Plug 'folke/tokyonight.nvim'
-
-Plug 'lambdalisue/suda.vim'
+" Colorscheme
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'daltonmenezes/aura-theme', { 'rtp': 'packages/neovim' }
 
 call plug#end()
 
 " Set colorscheme
-colorscheme tokyonight-night
+colorscheme aura-dark
 
 " Use Tab to accept suggestions
 inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
@@ -39,8 +39,6 @@ set number
 " Save as sudo
 cnoremap w!! SudaWrite
 
-" Start NERDTree at start
-autocmd VimEnter * NERDTree | wincmd p
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 " Toggle NERDTree with ctrl+/ 
