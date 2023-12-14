@@ -30,6 +30,14 @@ call plug#end()
 " Set colorscheme
 colorscheme aura-dark
 
+lua << EOF
+require('lualine').setup {
+  options = {
+    theme = 'ayu_mirage',
+  }
+}
+EOF
+
 " Use Tab to accept suggestions
 inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
 
