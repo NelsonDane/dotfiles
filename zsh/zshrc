@@ -6,12 +6,19 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias cat='pygmentize -g'
-alias ssh="kitty +kitten ssh"
+alias ssh="kitten ssh"
 alias vim="nvim"
 alias vi="nvim"
 alias d="kitty . > /dev/null 2>&1 & disown"
 alias c="clear"
 alias f="fuck"
+alias p="python"
+alias copilot="gh copilot"
+alias gcs="gh copilot suggest"
+alias gce="gh copilot explain"
+alias zconf="nvim ~/.config/dotfiles/zsh/zshrc"
+alias vconf="nvim ~/.config/dotfiles/nvim/init.vim"
+alias reload="source ~/.config/dotfiles/zsh/zshrc"
 # Docker host alias
 alias don="source ~/.config/dotfiles/scripts/docker_builder.sh on"
 alias doff="source ~/.config/dotfiles/scripts/docker_builder.sh off"
