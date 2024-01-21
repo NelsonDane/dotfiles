@@ -62,14 +62,7 @@
         "persistent_workspaces": {
             "1": [],
             "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-            "6": [],
-            "7": [],
-            "8": [],
-            "9": [],
-            "10": []
+            "3": []
         }
     },
 
@@ -131,7 +124,7 @@
         "format": "{ifname}",
 		"format-wifi": "({signalStrength}%) ",
 		"format-ethernet": "{bandwidthDownBits} | {bandwidthUpBits} 󰈀",
-		"format-disconnected": "", //An empty format will hide the module.
+		"format-disconnected": "Disconnected", //An empty format will hide the module.
 		"tooltip-format": "{ifname}",
 		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
 		"tooltip-format-ethernet": "{ifname} {ipaddr}\nnetmask: {netmask}",

@@ -25,8 +25,8 @@ update_theme() {
 restart_waybar() {
     #restart waybar
     pkill waybar
-    waybar & 
-    waybar --config ~/.config/dotfiles/waybar/conf/config-lower.jsonc &
+    waybar --config ~/.config/dotfiles/waybar/conf/config-upper.jsonc >> /dev/null 2>&1 &
+    waybar --config ~/.config/dotfiles/waybar/conf/config-lower.jsonc >> /dev/null 2>&1 &
 }
 
 set_current_background() {
@@ -65,6 +65,8 @@ hypr_symlinks() {
     echo "Setting symlinks for Hyprland..."
     # Hyprland
     ln -sf ~/.config/dotfiles/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
+    # Hyprpaper
+    ln -sf ~/.config/dotfiles/hypr/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
     # Mako
     ln -sf ~/.config/dotfiles/mako/conf/config-dark ~/.config/mako/config
     # Swaylock
@@ -77,8 +79,6 @@ hypr_symlinks() {
     # Wofi
     ln -sf ~/.config/dotfiles/wofi/config ~/.config/wofi/config
     ln -sf ~/.config/dotfiles/wofi/style/style-dark.css ~/.config/wofi/style.css
-    # Set the background
-    swww img ~/.config/dotfiles/backgrounds/background-light.jpg --transition-fps 60 --transition-type wipe --transition-duration 1
     # Update the sddm image
     cp -f ~/.config/dotfiles/backgrounds/background-light.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
     echo "Done!"
