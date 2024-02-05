@@ -3,7 +3,7 @@
 # This script will be ran with source
 
 # IP
-DOCKER_USER="builder"
+DOCKER_USER="root"
 DOCKER_IP="dockerbuilder.lan"
 
 # Check args

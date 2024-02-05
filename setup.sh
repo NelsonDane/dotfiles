@@ -26,7 +26,6 @@ restart_waybar() {
     #restart waybar
     pkill waybar
     waybar --config ~/.config/dotfiles/waybar/conf/config-upper.jsonc >> /dev/null 2>&1 &
-    waybar --config ~/.config/dotfiles/waybar/conf/config-lower.jsonc >> /dev/null 2>&1 &
 }
 
 set_current_background() {

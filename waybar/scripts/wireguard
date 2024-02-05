@@ -18,9 +18,9 @@ get_current_ip() {
 if [ "$1" == "" ]; then
     get_status
     if [ "$STATUS" == "active" ]; then
-        echo " Active"
+        echo ""
     else
-        echo " Inactive"
+        echo ""
     fi
 elif [ "$1" == "--toggle" ]; then
     get_status

@@ -3,11 +3,15 @@
 APP=$1
 ARGS=$2
 
-LAUNCH_ARGS="--enable-features=WaylandWindowDecorations --ozone-platform-hint=wayland"
+LAUNCH_ARGS="
+	--enable-features=UseOzonePlatform \
+	--ozone-platform=wayland \
+	--enable-webrtc-pipewire-capturer
+"
 
 if [ -z "$2" ]; then
     ARGS=""
 fi
 
 # Launch app
-$APP $LAUNCH_ARGS $ARGS >> /dev/null 2>&1 &
+$APP $ARGS $LAUNCH_ARGS >> /dev/null 2>&1 &

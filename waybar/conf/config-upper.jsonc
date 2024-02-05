@@ -8,24 +8,25 @@
     "height": 32,
     "modules-left": [
         "custom/power_btn",
-        "custom/lock_screen",
+        //"custom/lock_screen",
         "hyprland/workspaces"
     ],
     "modules-center": [
-        "clock",
-        "custom/updates"
+        "clock"
+        //"custom/updates"
     ],
     "modules-right": [
+	"custom/updates",
         "cpu",
         "pulseaudio",
         "pulseaudio#microphone",
-        "backlight",
-        "temperature",
-        "custom/power_profile",
-        "battery",
-        "network",
-        "custom/wireguard",
-        "custom/light_dark"
+        //"backlight",
+        //"temperature",
+        //"custom/power_profile",
+        //"battery",
+        //"network",
+        "custom/wireguard"
+        //"custom/light_dark"
     ],
 
     "clock": {
@@ -144,7 +145,7 @@
         "format": "{}",
         "exec": "~/.config/dotfiles/waybar/scripts/update-sys",
         "on-click": "~/.config/dotfiles/waybar/scripts/update-sys update",
-        "interval": 300,
-        "tooltip": true
+        "interval": 300
+        //"tooltip": true
     }
 }
