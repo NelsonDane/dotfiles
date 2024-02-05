@@ -5,7 +5,6 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias cat='pygmentize -g'
 alias ssh="kitten ssh"
 alias vim="nvim"
 alias vi="nvim"
@@ -19,6 +18,7 @@ alias hconf="nvim ~/.config/dotfiles/hypr/hyprland.conf"
 alias zconf="nvim ~/.config/dotfiles/zsh/zshrc"
 alias vconf="nvim ~/.config/dotfiles/nvim/init.vim"
 alias reload="source ~/.config/dotfiles/zsh/zshrc"
+alias pipuall="pip uninstall -y -r <(pip freeze)"
 # Docker host alias
 alias don="source ~/.config/dotfiles/scripts/docker_builder.sh on"
 alias doff="source ~/.config/dotfiles/scripts/docker_builder.sh off"
