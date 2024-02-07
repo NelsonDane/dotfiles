@@ -54,9 +54,11 @@ global_symlinks() {
     ln -sf ~/.config/dotfiles/zsh/zshrc ~/.zshrc
     # Kitty
     ln -sf ~/.config/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
-    echo "Done!"
     # Neovim
     ln -sf ~/.config/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+    # Starship
+    ln -sf ~/.config/dotfiles/starship/starship.toml ~/.config/starship.toml
+    echo "Done!"
 }
 
 # Set symlinks for Hyprland
