@@ -56,6 +56,7 @@ global_symlinks() {
     ln -sf ~/.config/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
     # Neovim
     ln -sf ~/.config/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+    ln -sf ~/.config/dotfiles/nvim/plugins.lua ~/.config/nvim/lua/plugins.lua
     # Starship
     ln -sf ~/.config/dotfiles/starship/starship.toml ~/.config/starship.toml
     echo "Done!"

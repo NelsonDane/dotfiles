@@ -23,6 +23,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fannheyward/coc-pyright', {'do': 'yarn install --frozen-lockfile'}
 Plug 'github/copilot.vim'
 
+" Terminal
+Plug 'akinsho/toggleterm.nvim', {'tag': '*'}
+
 " Colorscheme
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'daltonmenezes/aura-theme', { 'rtp': 'packages/neovim' }
@@ -31,15 +34,6 @@ call plug#end()
 
 " Set colorscheme
 colorscheme aura-dark
-" colorscheme aura-soft-dark
-
-lua << EOF
-require('lualine').setup {
-  options = {
-    theme = 'ayu_mirage',
- }
-}
-EOF
 
 " Set autocomplete
 call wilder#setup({'modes': [':', '/', '?']})
@@ -72,9 +66,24 @@ map <C-m> :tabnext<CR>
 " Save as sudo
 cnoremap w!! SudaWrite
 
+" Move through windows
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+nnoremap <C-H> <C-W>h
+
+" NERDTree
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 " Toggle NERDTree with ctrl+/ 
 noremap <C-/> :NERDTreeToggle<CR>
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" Terminal
+tnoremap <Esc> <C-\><C-n>
+" Open toggle term with Shift+T
+nnoremap <S-t> :lua require('toggleterm').toggle()<CR>
+
+" Source Lua
+lua require('plugins')
