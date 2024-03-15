@@ -13,12 +13,11 @@ alias f="fuck"
 alias p="python"
 alias calc="qalculate-gtk > /dev/null 2>&1 & disown"
 alias pip="python -m pip"
-alias wl="~/.config/dotfiles/launcher.sh"
 alias copilot="gh copilot"
 alias hconf="nvim ~/.config/dotfiles/hypr/hyprland.conf" 
 alias zconf="nvim ~/.config/dotfiles/zsh/zshrc"
 alias vconf="nvim ~/.config/dotfiles/nvim/init.vim"
-alias reload="source ~/.config/dotfiles/zsh/zshrc"
+alias reload="source ~/.zshrc"
 alias pipuall="pip uninstall -y -r <(pip freeze)"
 # Docker host alias
 alias don="source ~/.config/dotfiles/scripts/docker_builder.sh on"
@@ -31,6 +30,14 @@ promptinit
 PROMPT='[%n@%m %~]%# '
 
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 eval "$(thefuck --alias)"
 eval "$(starship init zsh)"
 
+if [[ $(uname) == "Darwin" ]]; then 
+    # MacOS Only
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+else
+    # Linux Only
+    alias wl="~/.config/dotfiles/launcher.sh"
+fi
