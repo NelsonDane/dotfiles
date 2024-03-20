@@ -28,17 +28,6 @@ restart_waybar() {
     waybar --config ~/.config/dotfiles/waybar/conf/config-upper.jsonc >> /dev/null 2>&1 &
 }
 
-set_current_background() {
-    get_theme
-    
-    #set the current background
-    if [[ $THEMEIS == "dark.css" ]]; then
-        swww img ~/.config/dotfiles/backgrounds/background-dark.jpg
-    else
-        swww img ~/.config/dotfiles/backgrounds/background-light.jpg
-    fi
-}
-
 # Get args
 if [ $# -eq 0 ]; then
     echo "No arguments supplied"

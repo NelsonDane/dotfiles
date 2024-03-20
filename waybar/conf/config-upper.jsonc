@@ -30,7 +30,7 @@
     ],
 
     "clock": {
-        "format": "{: %A, %B %e, %Y | %OI:%M:%S %p}",
+        "format": "{:%A, %B %e, %Y | %OI:%M:%S %p}",
         "interval": 1
     },
 
@@ -60,7 +60,7 @@
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate",
-        "persistent_workspaces": {
+        "persistent-workspaces": {
             "1": [],
             "2": [],
             "3": []
