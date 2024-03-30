@@ -6,6 +6,7 @@ ARGS=$2
 LAUNCH_ARGS="
 	--enable-features=UseOzonePlatform \
 	--ozone-platform=wayland \
+	--disable-gpu \
 	--enable-webrtc-pipewire-capturer
 "
 

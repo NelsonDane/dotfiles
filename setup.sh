@@ -1,25 +1,21 @@
 #!/bin/bash
 
-get_theme() {
-    # Check which waybar theme is set
-    THEMEIS=$(readlink -f ~/.config/waybar/style.css | cut -d '-' -f3)
-
-    #if the theme is not dark then we need to switch to it
-    if [[ $THEMEIS == "dark.css" ]]; then
-        SWITCHTO="-dark"
-        MODESTR="Dark"
-    else
-        SWITCHTO=""
-        MODESTR="Light"
+toggle_theme() {
+    # Get current XDG theme
+    # 0 = default, 1 = dark, 2 = light
+    current_theme=$(dbus-send --session --print-reply=literal --dest=org.freedesktop.portal.Desktop /org/freedesktop/portal/desktop org.freedesktop.portal.Settings.Read string:org.freedesktop.appearance string:color-scheme | tr -s ' ' | cut -d ' ' -f 5)
+    # Toggle theme
+    echo "Current theme: $current_theme"
+    if [ $current_theme == "0" ]; then
+        new_theme='prefer-dark'
+    elif [ $current_theme == "1" ]; then
+        new_theme='prefer-light'
+    elif [ $current_theme == "2" ]; then
+        new_theme='prefer-dark'
     fi
-}
-
-update_theme() {
-    xfconf-query -c xsettings -p /Net/IconThemeName -s "Papirus-Dark"
-    gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
-
-    xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita$SWITCHTO"
-    gsettings set org.gnome.desktop.interface gtk-theme "Adwaita$SWITCHTO"
+    echo "New theme: $new_theme"
+    # Set new theme
+    dconf write /org/gnome/desktop/interface/color-scheme "'$new_theme'"
 }
 
 restart_waybar() {
@@ -74,6 +70,13 @@ hypr_symlinks() {
     cp -f ~/.config/dotfiles/backgrounds/background-light.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
     echo "Done!"
 }
+
+# Toggle theme
+if [ $1 == "--toggle-theme" ]; then
+    echo "Toggling theme..."
+    toggle_theme
+    echo "Done!"
+fi
 
 # Restart waybar
 if [ $1 == "--restart-waybar" ]; then
