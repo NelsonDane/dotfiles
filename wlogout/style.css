@@ -1,0 +1,48 @@
+/* :root {
+    --gray: #515151;
+    --green: #00ff99ee;
+} */
+
+* {
+	background-image: none;
+	box-shadow: none;
+}
+
+window {
+	background-color: rgba(81, 81, 81, 0.3);
+    font-family: monospace;
+    font-size: 14pt;
+    color: #D4BFF9;
+}
+
+button {
+    background-color: rgba(81, 81, 81, 1);
+    border-width: 1px;
+    border-radius: 20px;
+    border-color: rgba(162, 119, 255, 1);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15%;
+    margin: 5px;
+    /* height: auto; */
+}
+
+button:hover {
+    background-color: rgba(162, 119, 255, 1);
+}
+
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+}

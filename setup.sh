@@ -63,6 +63,7 @@ hypr_symlinks() {
     ln -sf ~/.config/dotfiles/waybar/style/style-dark.css ~/.config/waybar/style.css
     # Wlogout
     ln -sf ~/.config/dotfiles/wlogout/layout ~/.config/wlogout/layout
+    ln -sf ~/.config/dotfiles/wlogout/style.css ~/.config/wlogout/style.css
     # Wofi
     ln -sf ~/.config/dotfiles/wofi/config ~/.config/wofi/config
     ln -sf ~/.config/dotfiles/wofi/style/style-dark.css ~/.config/wofi/style.css
