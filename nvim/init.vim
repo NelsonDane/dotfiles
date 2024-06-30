@@ -14,6 +14,9 @@ Plug 'preservim/nerdtree'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'gelguy/wilder.nvim'
 
+" Git
+Plug 'kdheepak/lazygit.nvim'
+
 " Statusline
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
@@ -65,6 +68,9 @@ map <C-m> :tabnext<CR>
 
 " Save as sudo
 cnoremap w!! SudaWrite
+
+" Lazygit
+cnoremap lg :LazyGit<CR>
 
 " Move through windows
 nnoremap <C-J> <C-W>j

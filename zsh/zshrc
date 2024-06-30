@@ -11,26 +11,20 @@ alias d="kitty . > /dev/null 2>&1 & disown"
 alias c="clear"
 alias f="fuck"
 alias p="python"
+alias lg="lazygit"
 alias calc="qalculate-gtk > /dev/null 2>&1 & disown"
 alias pip="python -m pip"
 alias copilot="gh copilot"
-alias hconf="nvim ~/.config/dotfiles/hypr/hyprland.conf" 
 alias zconf="nvim ~/.config/dotfiles/zsh/zshrc"
 alias vconf="nvim ~/.config/dotfiles/nvim/init.vim"
 alias reload="source ~/.zshrc"
 alias pipuall="pip uninstall -y -r <(pip freeze)"
-# Docker host alias
-alias don="source ~/.config/dotfiles/scripts/docker_builder.sh on"
-alias doff="source ~/.config/dotfiles/scripts/docker_builder.sh off"
-alias dstat="source ~/.config/dotfiles/scripts/docker_builder.sh status"
 
 autoload -U promptinit
 promptinit
 
 PROMPT='[%n@%m %~]%# '
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 eval "$(thefuck --alias)"
 eval "$(starship init zsh)"
 
@@ -39,6 +33,7 @@ if [[ $(uname) == "Darwin" ]]; then
     source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 else
     # Linux Only
+    alias hconf="nvim ~/.config/dotfiles/hypr/hyprland.conf" 
     alias wl="~/.config/dotfiles/launcher.sh"
     source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
