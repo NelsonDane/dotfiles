@@ -5,12 +5,7 @@
 [init]
 	defaultBranch = main
 [commit]
-    gpgSign = true
+	gpgsign = true
 [core]
-    excludesfile = ~/.config/dotfiles/git/gitignore
+    	excludesfile = ~/.config/dotfiles/git/gitignore
 
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
