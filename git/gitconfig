@@ -2,10 +2,11 @@
 	name = Nelson Dane
 	email = 47427072+NelsonDane@users.noreply.github.com
 	signingKey = 8739A1D9F4ADECB967B4094F1D405F49029EB38E
+[includeIf "gitdir:~/Gitea/"]
+	path = ~/.config/dotfiles/git/gitconfig-gitea
 [init]
 	defaultBranch = main
 [commit]
 	gpgsign = true
 [core]
     	excludesfile = ~/.config/dotfiles/git/gitignore
-
