@@ -6,6 +6,8 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias ssh="kitten ssh"
+alias ff="fastfetch"
+alias neofetch="fastfetch"
 alias v="nvim"
 alias d="kitty . > /dev/null 2>&1 & disown"
 alias c="clear"
