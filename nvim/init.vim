@@ -33,6 +33,9 @@ Plug 'akinsho/toggleterm.nvim', {'tag': '*'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'daltonmenezes/aura-theme', { 'rtp': 'packages/neovim' }
 
+" Save as sudo
+Plug 'lambdalisue/suda.vim'
+
 call plug#end()
 
 " Set colorscheme
@@ -59,6 +62,9 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
 set number
 set relativenumber
 set showtabline=2
+
+" Indentation
+set autoindent expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 " Tabs
 map <C-t> :tabnew<CR>
@@ -89,7 +95,7 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 " Terminal
 tnoremap <Esc> <C-\><C-n>
 " Open toggle term with Shift+T
-nnoremap <S-t> :lua require('toggleterm').toggle()<CR>
+nnoremap <S-t> :lua require('toggleterm').toggle()<CR>:startinsert<CR>
 
 " Source Lua
 lua require('plugins')
