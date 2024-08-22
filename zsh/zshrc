@@ -36,6 +36,5 @@ if [[ $(uname) == "Darwin" ]]; then
 else
     # Linux Only
     alias hconf="nvim ~/.config/dotfiles/hypr/hyprland.conf" 
-    alias wl="~/.config/dotfiles/launcher.sh"
     source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
