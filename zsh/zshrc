@@ -33,6 +33,8 @@ eval "$(starship init zsh)"
 if [[ $(uname) == "Darwin" ]]; then 
     # MacOS Only
     source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    #alias docker=/usr/local/bin/docker
 else
     # Linux Only
     alias hconf="nvim ~/.config/dotfiles/hypr/hyprland.conf" 
