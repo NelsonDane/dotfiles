@@ -3,20 +3,20 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+setopt histignoredups
+
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias ssh="kitten ssh"
 alias ff="fastfetch"
 alias neofetch="fastfetch"
 alias v="nvim"
-alias d="kitty . > /dev/null 2>&1 & disown"
 alias c="clear"
 alias f="fuck"
 alias p="python"
 alias lg="lazygit"
 alias calc="qalculate-gtk > /dev/null 2>&1 & disown"
 alias pip="python -m pip"
-alias copilot="gh copilot"
 alias zconf="nvim ~/.config/dotfiles/zsh/zshrc"
 alias vconf="nvim ~/.config/dotfiles/nvim/init.vim"
 alias reload="source ~/.zshrc"
@@ -34,7 +34,6 @@ if [[ $(uname) == "Darwin" ]]; then
     # MacOS Only
     source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    #alias docker=/usr/local/bin/docker
 else
     # Linux Only
     alias hconf="nvim ~/.config/dotfiles/hypr/hyprland.conf" 
